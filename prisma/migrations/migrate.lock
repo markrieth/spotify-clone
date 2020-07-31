@@ -1,0 +1,6 @@
+# Prisma Migrate lockfile v1
+
+20200730174237-remove
+20200730182035-songs
+20200730182414-add-genre
+20200730194535-uuids
