@@ -1,6 +1,6 @@
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -14,7 +14,7 @@ model Song {
   albumId     String
   genre       String?
   album       Album  @relation(fields: [albumId], references: [id])
-  playlists   Playlist[]
+
   @@index(fields: [genre])
 }
 
@@ -29,11 +29,5 @@ model Album {
   title       String
   artistId    String
   artist      Artist     @relation(fields: [artistId], references: [id])
-  songs       Song[]
-}
-
-model Playlist {
-  id          String     @id @default(uuid())
-  title       String
   songs       Song[]
 }

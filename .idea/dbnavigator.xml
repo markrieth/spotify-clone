@@ -23,11 +23,22 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="false" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="f4f563fa-1ca3-4b02-9f72-20e03ffd7809">
+        <schema name="main" object-types="view, table, constraint, column, index, dataset trigger" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="f4f563fa-1ca3-4b02-9f72-20e03ffd7809">
-      <console name="Connection" type="STANDARD" schema="" session="Main"><![CDATA[select * from Song;]]></console>
+      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[select * from Song;
+
+insert into Song (id, title, contentUrl, genre, "albumId") values ('3', 'Lithium', 'google.com', 'Rock', '7');
+
+
+insert into Artist (id, name) values ('2', 'Nirvana')
+
+insert into Album (id, title, "artistId") values ('9', 'A Night at the Opera', '1')]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -35,6 +46,10 @@
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="f4f563fa-1ca3-4b02-9f72-20e03ffd7809" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="f4f563fa-1ca3-4b02-9f72-20e03ffd7809" dataset="main.Song" active-filter-id="" />
+    <filter-actions connection-id="f4f563fa-1ca3-4b02-9f72-20e03ffd7809" dataset="main.Album" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />

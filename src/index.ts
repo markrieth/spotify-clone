@@ -4,6 +4,7 @@ import resolvers from './resolvers';
 import SongAPI from './Song/datasource';
 import schema from './schema';
 import { DataSources } from './types';
+import PlaylistAPI from './Playlist/dataSources';
 
 // Initialize our ORM
 const store = new PrismaClient();
@@ -11,6 +12,7 @@ const store = new PrismaClient();
 // set up any dataSources our resolvers need
 const dataSources = (): DataSources => ({
   songAPI: new SongAPI({ store }),
+  playlistAPI: new PlaylistAPI({ store })
 });
 
 // Set up Apollo Server

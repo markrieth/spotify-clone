@@ -6,14 +6,32 @@ const schema = gql`
   }
 
   type Query {
-    song(id: Int!): Song
+    song(id: String!): Song
+    songs(genre: String!): [Song!]!
   }
-
+  
+  type Mutation {
+    createPlaylist(songIds: [String!]!, title: String!): Playlist!
+  }
+  
   type Song {
     id: ID!
     title: String!
     contentUrl:  String!
+    album: Album
     genre: String
+  }
+  
+  type Album {
+    id: ID!
+    title: String!
+    songs: [Song!]!
+  }
+  
+  type Playlist {
+    id: ID!
+    title: String!
+    songs: [Song!]!
   }
 `
 

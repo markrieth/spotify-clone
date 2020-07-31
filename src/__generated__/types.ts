@@ -14,6 +14,7 @@ export type Scalars = {
 export type Query = {
   __typename?: 'Query';
   song?: Maybe<Song>;
+  songs: Array<Song>;
 };
 
 
@@ -21,12 +22,43 @@ export type QuerySongArgs = {
   id: Scalars['String'];
 };
 
+
+export type QuerySongsArgs = {
+  genre: Scalars['String'];
+};
+
+export type Mutation = {
+  __typename?: 'Mutation';
+  createPlaylist: Playlist;
+};
+
+
+export type MutationCreatePlaylistArgs = {
+  songIds: Array<Scalars['String']>;
+  title: Scalars['String'];
+};
+
 export type Song = {
   __typename?: 'Song';
   id: Scalars['ID'];
   title: Scalars['String'];
   contentUrl: Scalars['String'];
+  album?: Maybe<Album>;
   genre?: Maybe<Scalars['String']>;
+};
+
+export type Album = {
+  __typename?: 'Album';
+  id: Scalars['ID'];
+  title: Scalars['String'];
+  songs: Array<Song>;
+};
+
+export type Playlist = {
+  __typename?: 'Playlist';
+  id: Scalars['ID'];
+  title: Scalars['String'];
+  songs: Array<Song>;
 };
 
 export type CacheControlScope = 
