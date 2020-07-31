@@ -5,14 +5,15 @@ Test the code by running `yarn test`.
 Some pre-populated songs have ids: `1,2,3`. By searching for those in the playground, you can start exploring.
 
 ## Source Code
-The source can be found in this directory. The code is generally organized by domain, e.g. Song, Playlist, Album, etc.
-Tests are kept close to the source code files. There are only two tests as a demonstration of how they would work.
+The source can be found in the /src directory. The code is generally organized by domain, e.g. Song, Playlist, Album, etc.
+Tests are kept close to the source code files. There are only two tests as a demonstration of how they would work, but an 
+imporovement would be to expand test coverage and to include integration tests.
 
 
 ## Architectural Schema
 
-GraphQL was chosen over ReST. 
-The schema file can be found in this directory.
+- GraphQL was chosen over ReST. 
+- The schema file can be found in the /src directory at `schema.ts`.
 I used code generating tools to create typescript types based on the introspected schema. This ensures that the
 source code is working with types that Apollo Server will generate based on incoming requests. 
 
