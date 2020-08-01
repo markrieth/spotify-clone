@@ -1,4 +1,4 @@
-# Atticus Engineering Assignemnt
+# Spotify Clone (Backend)
 Final submission for the Atticus assignment. Run with `yarn start` and visit localhost:4000 to start exploring.
 Test the code by running `yarn test`.
 
