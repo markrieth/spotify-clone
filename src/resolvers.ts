@@ -28,7 +28,7 @@ const resolvers = {
 
   },
   Mutation: {
-    createPlaylist: async (
+    playlistCreate: async (
       parent: any,
       args: MutationCreatePlaylistArgs,
       { dataSources }: { dataSources: DataSources }

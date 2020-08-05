@@ -43,7 +43,7 @@ describe('[Query.song]', () => {
   test.todo('Define error cases and test what happens there');
 });
 
-describe('[Mutation.createPlaylist]', () => {
+describe('[Mutation.playlistCreate]', () => {
   it('should call PlaylistAPI.create with the correct args and returns the result', async () => {
 
     const mockInput: MutationCreatePlaylistArgs = {
@@ -56,7 +56,8 @@ describe('[Mutation.createPlaylist]', () => {
     };
     const mockContext = { dataSources: mockDataSources };
     mockContext.dataSources.playlistAPI.create.mockResolvedValueOnce(mockOutput);
-    const result = await resolvers.Mutation.createPlaylist(null, mockInput, mockContext);
+
+    const result = await resolvers.Mutation.playlistCreate(null, mockInput, mockContext);
 
     // Check that playlistAPI was called correctly
     expect(mockDataSources.playlistAPI.create).toBeCalledWith(mockInput);

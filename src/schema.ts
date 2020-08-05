@@ -12,7 +12,7 @@ const schema = gql`
   }
   
   type Mutation {
-    createPlaylist(songIds: [String!]!, title: String!): Playlist!
+    playlistCreate(songIds: [String!]!, title: String!): Playlist!
   }
   
   type Song {
