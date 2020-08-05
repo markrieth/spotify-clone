@@ -3,6 +3,7 @@ import { gql } from "apollo-server";
 const schema = gql`
   schema {
     query: Query
+    mutation: Mutation
   }
 
   type Query {
