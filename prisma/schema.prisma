@@ -8,12 +8,12 @@ generator client {
 }
 
 model Song {
-  id          String     @id @default(uuid())
+  id          String      @id @default(uuid())
   title       String
   contentUrl  String
   albumId     String
   genre       String?
-  album       Album  @relation(fields: [albumId], references: [id])
+  album       Album       @relation(fields: [albumId], references: [id])
   playlists   Playlist[]
   @@index(fields: [genre])
 }

@@ -17,7 +17,7 @@ const schema = gql`
   type Song {
     id: ID!
     title: String!
-    contentUrl:  String!
+    contentUrl: String!
     album: Album
     genre: String
   }

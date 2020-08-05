@@ -6,32 +6,33 @@ import {
   Query,
   QuerySongArgs,
   QuerySongsArgs,
-  Song
+  Song,
 } from './__generated__/types';
 
-export default {
+const resolvers = {
   Query: {
     song: async (
-      _root: any,
+      parent: any,
       { id }: QuerySongArgs,
       { dataSources }: { dataSources: DataSources }
-    ): Promise<Query['song']> => {
-      return dataSources.songAPI.findSong(id);
+    ): Promise<Partial<Query['song']>> => {
+      return dataSources.songAPI.find(id);
     },
     songs: async (
-      _root: any,
+      parent: any,
       { genre }: QuerySongsArgs,
       { dataSources }: { dataSources: DataSources }
-    ): Promise<Query['songs']> => {
-      return dataSources.songAPI.listSongs(genre)
+    ): Promise<Partial<Query['songs']>> => {
+      return dataSources.songAPI.list(genre)
     },
+
   },
   Mutation: {
     createPlaylist: async (
-      _root: any,
+      parent: any,
       args: MutationCreatePlaylistArgs,
       { dataSources }: { dataSources: DataSources }
-    ): Promise<Mutation['createPlaylist']> => {
+    ): Promise<Partial<Mutation['createPlaylist']>> => {
       return dataSources.playlistAPI.create({
         title: args.title,
         songIds: args.songIds
@@ -41,9 +42,9 @@ export default {
   Song: {
     album: async (
       song: Song,
-      _args: any,
+      args: null,
       { dataSources }: { dataSources: DataSources }
-    ): Promise<any> => {
+    ): Promise<Partial<Album>> => {
       if (song.album) {
         return song.album;
       }
@@ -51,3 +52,5 @@ export default {
     }
   }
 };
+
+export default resolvers;

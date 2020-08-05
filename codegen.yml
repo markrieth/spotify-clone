@@ -3,4 +3,6 @@ config:
   enumsAsTypes: true
 generates:
   src/__generated__/types.ts:
+    plugins:
     - typescript
+    - typescript-resolvers

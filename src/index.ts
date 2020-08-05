@@ -4,7 +4,7 @@ import resolvers from './resolvers';
 import SongAPI from './Song/datasource';
 import schema from './schema';
 import { DataSources } from './types';
-import PlaylistAPI from './Playlist/dataSources';
+import PlaylistAPI from './Playlist/datasource';
 
 // Initialize our ORM
 const store = new PrismaClient();

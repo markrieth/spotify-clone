@@ -2,15 +2,16 @@
   "name": "script",
   "license": "MIT",
   "devDependencies": {
+    "@graphql-codegen/typescript-resolvers": "^1.17.7",
     "@prisma/cli": "2.3.0",
-    "ts-node": "8.7.0",
-    "typescript": "3.8.3",
     "@types/jest": "^26.0.7",
-    "jest": "^24.9.0",
-    "ts-jest": "^24.1.0",
     "apollo": "^2.1.8",
     "apollo-link": "^1.2.3",
-    "apollo-link-http": "^1.5.5"
+    "apollo-link-http": "^1.5.5",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "ts-node": "8.7.0",
+    "typescript": "3.8.3"
   },
   "scripts": {
     "test": "node_modules/.bin/jest",
@@ -18,18 +19,23 @@
     "generate:types": "node_modules/.bin/apollo schema:download --endpoint http://localhost:4000/graphql schema.json && node_modules/.bin/graphql-codegen"
   },
   "dependencies": {
+    "@graphql-codegen/cli": "^1.7.0",
+    "@graphql-codegen/typescript": "^1.7.0",
     "@prisma/client": "2.3.0",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^3.8.0",
     "apollo-datasource": "^0.1.3",
     "apollo-datasource-rest": "^0.1.5",
     "apollo-server": "^2.15.0",
     "apollo-server-testing": "^2.15.0",
-    "@graphql-codegen/cli": "^1.7.0",
-    "@graphql-codegen/typescript": "^1.7.0"
+    "eslint": "^7.6.0",
+    "graphql": "^15.3.0"
   },
   "engines": {
     "node": ">=10.0.0"
   },
   "jest": {
+    "collectCoverage": true,
     "testPathIgnorePatterns": [
       "/node_modules/"
     ],

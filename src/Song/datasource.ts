@@ -1,6 +1,6 @@
 import { PrismaClient, Song, Album } from '@prisma/client';
 import { DataSource } from 'apollo-datasource';
-import { ApolloError } from 'apollo-server';
+import EntityNotFoundError from '../Error/EntityNotFoundError';
 
 /**
  * This example may seem superficial, but it acts as a layer of abstraction for our
@@ -15,23 +15,34 @@ class SongAPI extends DataSource {
     this.store = store;
   }
 
-  // Todo: consider throwing an error when the record does not exist
-  async findSong(id: string): Promise<Song | null> {
-    return this.store.song.findOne({ where: { id } });
+  async find(id: string): Promise<Song> {
+    const queryArgs = { where: { id } };
+    const song = await this.store.song.findOne(queryArgs);
+    if (song === null) {
+      throw new EntityNotFoundError(
+        'Song',
+        { invalidArgs: queryArgs.where }
+      );
+    }
+    return song;
   }
 
   async findAlbum(songId: string): Promise<Album> {
-    const song = await this.store.song.findOne({
+    const queryArgs = {
       where: { id: songId },
       select: { album: true }
-    });
+    };
+    const song = await this.store.song.findOne(queryArgs);
     if (!song) {
-      throw new ApolloError('Could not find song: ' + songId)
+      throw new EntityNotFoundError(
+        'Song',
+        { invalidArgs: queryArgs.where }
+      );
     }
     return song.album;
   }
 
-  async listSongs(genre: string): Promise<Array<Song>> {
+  async list(genre: string): Promise<Array<Song>> {
     return this.store.song.findMany({ where: { genre } });
   }
 }
