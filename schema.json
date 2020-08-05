@@ -4,7 +4,9 @@
     "queryType": {
       "name": "Query"
     },
-    "mutationType": null,
+    "mutationType": {
+      "name": "Mutation"
+    },
     "subscriptionType": null,
     "types": [
       {
@@ -100,7 +102,7 @@
         "description": null,
         "fields": [
           {
-            "name": "createPlaylist",
+            "name": "playlistCreate",
             "description": null,
             "args": [
               {

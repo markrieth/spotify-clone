@@ -31,11 +31,11 @@ export type QuerySongsArgs = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  createPlaylist: Playlist;
+  playlistCreate: Playlist;
 };
 
 
-export type MutationCreatePlaylistArgs = {
+export type MutationPlaylistCreateArgs = {
   songIds: Array<Scalars['String']>;
   title: Scalars['String'];
 };
@@ -177,7 +177,7 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
-  createPlaylist?: Resolver<ResolversTypes['Playlist'], ParentType, ContextType, RequireFields<MutationCreatePlaylistArgs, 'songIds' | 'title'>>;
+  playlistCreate?: Resolver<ResolversTypes['Playlist'], ParentType, ContextType, RequireFields<MutationPlaylistCreateArgs, 'songIds' | 'title'>>;
 };
 
 export type SongResolvers<ContextType = any, ParentType extends ResolversParentTypes['Song'] = ResolversParentTypes['Song']> = {

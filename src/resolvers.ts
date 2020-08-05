@@ -2,7 +2,7 @@ import { DataSources } from './types';
 import {
   Album,
   Mutation,
-  MutationCreatePlaylistArgs,
+  MutationPlaylistCreateArgs,
   Query,
   QuerySongArgs,
   QuerySongsArgs,
@@ -30,9 +30,9 @@ const resolvers = {
   Mutation: {
     playlistCreate: async (
       parent: any,
-      args: MutationCreatePlaylistArgs,
+      args: MutationPlaylistCreateArgs,
       { dataSources }: { dataSources: DataSources }
-    ): Promise<Partial<Mutation['createPlaylist']>> => {
+    ): Promise<Partial<Mutation['playlistCreate']>> => {
       return dataSources.playlistAPI.create({
         title: args.title,
         songIds: args.songIds
